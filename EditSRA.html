@@ -56,6 +56,8 @@
       <button type="button" id="btnInsertHorizontalRule" onclick="document.execCommand('insertHorizontalRule')" />구분선</button>
       <button type="button" id="btnUnlink" onclick="document.execCommand('unlink')" />링크제거</button>
       <button type="button" id="btnInsertParagraph" onclick="document.execCommand('insertParagraph')" />문단추가</button>
+      <button type="button" id="btnSuperscript" onclick="document.execCommand('superscript')" />윗첨자</button>
+      <button type="button" id="btnSubscript" onclick="document.execCommand('subscript')" />아래첨자</button>
       <button type="button" id="btnSelectAll" onclick="document.execCommand('selectAll')" />전체선택</button>
       <button type="button" id="btnRemoveFormat" onclick="document.execCommand('removeFormat')" />형식제거</button>
 
@@ -76,15 +78,14 @@
       <button type="button" id="btnUseCSS" onclick="document.execCommand('useCSS')" />CSS 변경</button>
       <button type="button" id="btnInsertBrOnReturn" onclick="document.execCommand('insertBrOnReturn')" />br 태그</button>
       <button type="button" id="btnDecreaseFontSize" onclick="document.execCommand('enableObjectResizing')" />이미지 조절</button>
-      <button type="button" id="btnSuperscript" onclick="document.execCommand('superscript')" />윗첨자</button>
-      <button type="button" id="btnSubscript" onclick="document.execCommand('subscript')" />아래첨자</button>
+
 
       <h3>에디터변경</h3>
       <button type="button" id="btnTextEdit" style="display:none" onclick="showText()" />에디터</button>
       <button type="button" id="btnHtmlEdit" style="display:" onclick="showHTML()" />코드</button>
     </div>
     <div id="textEdit" style="display:" contenteditable="true"></div>
-    <div id="htmlEdit" style="display:none" contenteditable="true"></div>
+    <div id="htmlEdit" style="display:none"></div>
     <script src="./js/jquery.min.js"></script>
     <script>
       let textEdit = $('#textEdit');
@@ -109,5 +110,4 @@
       }
     </script>
   </body>
-
 </html>
