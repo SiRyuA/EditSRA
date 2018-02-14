@@ -27,10 +27,14 @@
   </head>
   <body>
     <div id="btnbox">
+
+      <h3>기본기능</h3>
+
       <button type="button" id="btnBold" onclick="document.execCommand('bold')" />진하게</button>
       <button type="button" id="btnItalic" onclick="document.execCommand('Italic')" />기울이기</button>
       <button type="button" id="btnUnderLine" onclick="document.execCommand('Underline')" />밑줄</button>
       <button type="button" id="btnStrikeThrough" onclick="document.execCommand('StrikeThrough')" />취소선</button>
+      <button type="button" id="btnJutifyFull" onclick="document.execCommand('justifyFull')" />양쪽 정렬</button>
       <button type="button" id="btnJutifyLeft" onclick="document.execCommand('justifyleft')" />왼쪽 정렬</button>
       <button type="button" id="btnJutifyCenter" onclick="document.execCommand('justifycenter')" />가운데 정렬</button>
       <button type="button" id="btnJutifyRight" onclick="document.execCommand('justifyright')" />오른쪽 정렬</button>
@@ -47,12 +51,35 @@
       <button type="button" id="btnIndent" onclick="document.execCommand('indent')" />들여쓰기</button>
       <button type="button" id="btnInsertHorizontalRule" onclick="document.execCommand('insertHorizontalRule')" />구분선</button>
       <button type="button" id="btnUnlink" onclick="document.execCommand('unlink')" />링크제거</button>
+      <button type="button" id="btnInsertParagraph" onclick="document.execCommand('insertParagraph')" />문단추가</button>
+      <button type="button" id="btnSelectAll" onclick="document.execCommand('selectAll')" />전체선택</button>
+      <button type="button" id="btnRemoveFormat" onclick="document.execCommand('removeFormat')" />형식제거</button>
 
+      <h3>구현중</h3>
+      <button type="button" id="btnInsertBrOnReturn" onclick="document.execCommand('backColor',false,'#FFCDD2')" />배경색</button>
+      <button type="button" id="btnInsertBrOnReturn" onclick="document.execCommand('createLink',false,'/')" />링크</button>
+      <button type="button" id="btnFontName" onclick="document.execCommand('fontName',false,'궁서')" />글자폰트</button>
+      <button type="button" id="btnFontSize" onclick="document.execCommand('fontSize',false,'24')" />글자크기</button>
+      <button type="button" id="btnFontColor" onclick="document.execCommand('foreColor',false,'#f00')" />글자색상</button>
+      <button type="button" id="btnHeading" onclick="document.execCommand('heading',false,'H1')" />제목</button>
+      <button type="button" id="btnFormatBlock" onclick="document.execCommand('formatBlock',false,'BLOCKQUOTE')" />코드</button>
+      <button type="button" id="btnIncreaseFontSize" onclick="document.execCommand('increaseFontSize')" />큰글자</button>
+      <button type="button" id="btnDecreaseFontSize" onclick="document.execCommand('decreaseFontSize')" />작은글자</button>
+      <button type="button" id="btnInsertImage" onclick="document.execCommand('insertImage')" />이미지 삽입</button>
+      <button type="button" id="btnUseCSS" onclick="document.execCommand('useCSS')" />CSS 변경</button>
+
+      <h3>ON/OFF</h3>
+      <button type="button" id="btnInsertBrOnReturn" onclick="document.execCommand('insertBrOnReturn')" />br 태그</button>
+      <button type="button" id="btnDecreaseFontSize" onclick="document.execCommand('enableObjectResizing')" />이미지 조절</button>
+      <button type="button" id="btnSuperscript" onclick="document.execCommand('superscript')" />윗첨자</button>
+      <button type="button" id="btnSubscript" onclick="document.execCommand('subscript')" />아래첨자</button>
+
+      <h3>특수기능</h3>
       <button type="button" id="btnTextEdit" style="display:none" onclick="showText()" />에디터</button>
       <button type="button" id="btnHtmlEdit" style="display:" onclick="showHTML()" />코드</button>
     </div>
     <div id="textEdit" style="display:" contenteditable="true"></div>
-    <div id="htmlEdit" style="display:none"></div>
+    <div id="htmlEdit" style="display:none" contenteditable="true"></div>
     <script src="./js/jquery.min.js"></script>
     <script>
       let textEdit = $('#textEdit');
