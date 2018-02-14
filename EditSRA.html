@@ -23,13 +23,17 @@
         margin:2px 0;
         padding:8px;
       }
+
+      #btnbox input {
+        font-size:14px;
+        padding:8px;
+      }
     </style>
   </head>
   <body>
     <div id="btnbox">
 
       <h3>기본기능</h3>
-
       <button type="button" id="btnBold" onclick="document.execCommand('bold')" />진하게</button>
       <button type="button" id="btnItalic" onclick="document.execCommand('Italic')" />기울이기</button>
       <button type="button" id="btnUnderLine" onclick="document.execCommand('Underline')" />밑줄</button>
@@ -55,26 +59,27 @@
       <button type="button" id="btnSelectAll" onclick="document.execCommand('selectAll')" />전체선택</button>
       <button type="button" id="btnRemoveFormat" onclick="document.execCommand('removeFormat')" />형식제거</button>
 
+      <br>
+
+      <button type="button" id="btnBackColor" onclick="document.execCommand('backColor',false,getInput('inputBackColor'))" />배경색</button><input type=text id="inputBackColor" value="#"><br>
+      <button type="button" id="btnCreateLink" onclick="document.execCommand('createLink',false,getInput('inputCreateLink'))" />링크</button><input type=text id="inputCreateLink" value="https://"><br>
+      <button type="button" id="btnFontName" onclick="document.execCommand('fontName',false,getInput('inputFontName'))" />글자폰트</button><input type=text id="inputFontName" value=""><br>
+      <button type="button" id="btnFontSize" onclick="document.execCommand('fontSize',false,getInput('inputFontSize'))" />글자크기</button><input type=text id="inputFontSize" value=""><br>
+      <button type="button" id="btnFontColor" onclick="document.execCommand('foreColor',false,getInput('inputFontColor'))" />글자색상</button><input type=text id="inputFontColor" value="#"><br>
+      <button type="button" id="btnHeading" onclick="document.execCommand('heading',false,getInput('inputCreateLink'))" />제목</button><input type=text id="inputHeading" value=""><br>
+      <button type="button" id="btnFormatBlock" onclick="document.execCommand('formatBlock',false,getInput('inputCreateLink'))" />특수태그</button><input type=text id="inputFormatBlock" value=""><br>
+
       <h3>구현중</h3>
-      <button type="button" id="btnInsertBrOnReturn" onclick="document.execCommand('backColor',false,'#FFCDD2')" />배경색</button>
-      <button type="button" id="btnInsertBrOnReturn" onclick="document.execCommand('createLink',false,'/')" />링크</button>
-      <button type="button" id="btnFontName" onclick="document.execCommand('fontName',false,'궁서')" />글자폰트</button>
-      <button type="button" id="btnFontSize" onclick="document.execCommand('fontSize',false,'24')" />글자크기</button>
-      <button type="button" id="btnFontColor" onclick="document.execCommand('foreColor',false,'#f00')" />글자색상</button>
-      <button type="button" id="btnHeading" onclick="document.execCommand('heading',false,'H1')" />제목</button>
-      <button type="button" id="btnFormatBlock" onclick="document.execCommand('formatBlock',false,'BLOCKQUOTE')" />코드</button>
       <button type="button" id="btnIncreaseFontSize" onclick="document.execCommand('increaseFontSize')" />큰글자</button>
       <button type="button" id="btnDecreaseFontSize" onclick="document.execCommand('decreaseFontSize')" />작은글자</button>
       <button type="button" id="btnInsertImage" onclick="document.execCommand('insertImage')" />이미지 삽입</button>
       <button type="button" id="btnUseCSS" onclick="document.execCommand('useCSS')" />CSS 변경</button>
-
-      <h3>ON/OFF</h3>
       <button type="button" id="btnInsertBrOnReturn" onclick="document.execCommand('insertBrOnReturn')" />br 태그</button>
       <button type="button" id="btnDecreaseFontSize" onclick="document.execCommand('enableObjectResizing')" />이미지 조절</button>
       <button type="button" id="btnSuperscript" onclick="document.execCommand('superscript')" />윗첨자</button>
       <button type="button" id="btnSubscript" onclick="document.execCommand('subscript')" />아래첨자</button>
 
-      <h3>특수기능</h3>
+      <h3>에디터변경</h3>
       <button type="button" id="btnTextEdit" style="display:none" onclick="showText()" />에디터</button>
       <button type="button" id="btnHtmlEdit" style="display:" onclick="showHTML()" />코드</button>
     </div>
@@ -87,6 +92,8 @@
       let htmlEdit = $('#htmlEdit');
       let btnHtmlEdit = $('#btnHtmlEdit');
 
+      function getInput(id) { return document.getElementById(id).value; }
+
       function showHTML() {
         htmlEdit.text(textEdit.html());
         document.getElementById("textEdit").style.display="none";
@@ -96,7 +103,7 @@
       }
 
       function showText() {
-        textEdit.html(htmlEdit.text());
+        htmlEdit.text(textEdit.text());
         document.getElementById("textEdit").style.display="";
         document.getElementById("btnTextEdit").style.display="none";
         document.getElementById("htmlEdit").style.display="none";
