@@ -1,0 +1,81 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>EditSRA</title>
+    <style>
+      #textEdit,
+      #htmlEdit {
+        margin:10px 0;
+        width:98%;
+        height:300px;
+        border:1px solid #000;
+      }
+
+      #textEdit {
+        background:#ECEFF1;
+      }
+      #htmlEdit {
+        background:#BDBDBD;
+      }
+
+      #btnbox button {
+        font-size:14px;
+        margin:2px 0;
+        padding:8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="btnbox">
+      <button type="button" id="btnBold" onclick="document.execCommand('bold')" />진하게</button>
+      <button type="button" id="btnItalic" onclick="document.execCommand('Italic')" />기울이기</button>
+      <button type="button" id="btnUnderLine" onclick="document.execCommand('Underline')" />밑줄</button>
+      <button type="button" id="btnStrikeThrough" onclick="document.execCommand('StrikeThrough')" />취소선</button>
+      <button type="button" id="btnJutifyLeft" onclick="document.execCommand('justifyleft')" />왼쪽 정렬</button>
+      <button type="button" id="btnJutifyCenter" onclick="document.execCommand('justifycenter')" />가운데 정렬</button>
+      <button type="button" id="btnJutifyRight" onclick="document.execCommand('justifyright')" />오른쪽 정렬</button>
+      <button type="button" id="btnCut" onclick="document.execCommand('Cut')" />자르기</button>
+      <button type="button" id="btnCopy" onclick="document.execCommand('Copy')" />복사하기</button>
+      <button type="button" id="btnPaste" onclick="document.execCommand('Paste')" />붙여넣기</button>
+      <button type="button" id="btnDelete" onclick="document.execCommand('delete')" />삭제하기</button>
+      <button type="button" id="btnForwardDelete" onclick="document.execCommand('forwardDelete')" />지우기</button>
+      <button type="button" id="btnUndo" onclick="document.execCommand('Undo')" />실행취소</button>
+      <button type="button" id="btnRedo" onclick="document.execCommand('Redo')" />다시샐행</button>
+      <button type="button" id="btnTorderedList" onclick="document.execCommand('insertorderedList')" />글번호</button>
+      <button type="button" id="btnTunorderdList" onclick="document.execCommand('insertUnorderedList')" />글머리</button>
+      <button type="button" id="btnOutdent" onclick="document.execCommand('outdent')" />내여쓰기</button>
+      <button type="button" id="btnIndent" onclick="document.execCommand('indent')" />들여쓰기</button>
+      <button type="button" id="btnInsertHorizontalRule" onclick="document.execCommand('insertHorizontalRule')" />구분선</button>
+      <button type="button" id="btnUnlink" onclick="document.execCommand('unlink')" />링크제거</button>
+
+      <button type="button" id="btnTextEdit" style="display:none" onclick="showText()" />에디터</button>
+      <button type="button" id="btnHtmlEdit" style="display:" onclick="showHTML()" />코드</button>
+    </div>
+    <div id="textEdit" style="display:" contenteditable="true"></div>
+    <div id="htmlEdit" style="display:none"></div>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+      let textEdit = $('#textEdit');
+      let btnTextEdit = $('#btnTextEdit');
+      let htmlEdit = $('#htmlEdit');
+      let btnHtmlEdit = $('#btnHtmlEdit');
+
+      function showHTML() {
+        htmlEdit.text(textEdit.html());
+        document.getElementById("textEdit").style.display="none";
+        document.getElementById("btnTextEdit").style.display="";
+        document.getElementById("htmlEdit").style.display="";
+        document.getElementById("btnHtmlEdit").style.display="none";
+      }
+
+      function showText() {
+        textEdit.html(htmlEdit.text());
+        document.getElementById("textEdit").style.display="";
+        document.getElementById("btnTextEdit").style.display="none";
+        document.getElementById("htmlEdit").style.display="none";
+        document.getElementById("btnHtmlEdit").style.display="";
+      }
+    </script>
+  </body>
+
+</html>
